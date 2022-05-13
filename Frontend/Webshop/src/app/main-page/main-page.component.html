@@ -1,0 +1,247 @@
+<body>
+  
+  <!-- Header Info Begin -->
+  <div class="header-info">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="header-item">
+                      <img src="../../assets/themes/img/icons/delivery.png" alt="">
+                      <p>Free shipping on orders over $50</p>
+                  </div>
+              </div>
+              <div class="col-md-4 text-left text-lg-center">
+                  <div class="header-item">
+                      <img src="../../assets/themes/img/icons/voucher.png" alt="">
+                      <p>100% discount on products with any defects</p>
+                  </div>
+              </div>
+              <div class="col-md-4 text-left text-xl-right">
+                  <div class="header-item">
+                  <img src="../../assets/themes/img/icons/sales.png" alt="">
+                  <p>Spring actions </p>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Header Info End -->
+  <!-- Header End -->
+
+  
+  <!-- Features Section Begin -->
+  <section class="features-section spad">
+      <div class="features-ads">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-4">
+                      <div class="single-features-ads first">
+                          <img src="../../assets/themes/img/icons/f-delivery.png" alt="">
+                          <h4>Free shipping</h4>
+                          <p></p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="single-features-ads second">
+                          <img src="../../assets/themes/img/icons/coin.png" alt="">
+                          <h4>100% Money back </h4>
+                          <p></p> 
+                      </div>
+                  </div>
+                  <div class="col-lg-4">
+                      <div class="single-features-ads">
+                          <img src="../../assets/themes/img/icons/chat.png" alt="">
+                          <h4>Online support 24/7</h4>
+                          <p></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Features Box -->
+      <div class="features-box">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="row">
+                          <div class="col-lg-12">
+                              <div class="single-box-item first-box">
+                                  <img src="../../assets/themes/img/divat1.jpg" alt="">
+                                  <div class="box-text">
+                                      <span class="trend-alert">Trend Allert</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-12">
+                              <div class="single-box-item second-box">
+                                  <img src="../../assets/themes/img/divat3.jpg" alt="">
+                                  <div class="box-text">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="single-box-item large-box">
+                          <img src="../../assets/themes/img/divat2.jpg" alt="">
+                          <div class="box-text">
+                            <span class="trend-year">2021 Trend</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Features Section End -->
+
+  <section class="latest-products spad">
+    <div class="container">
+        <div class="product-filter">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <h2>Popular</h2>
+                    </div>
+                    <ul class="product-controls">
+                        <li class="ListTitle">Woman:</li>
+                        <ng-container  *ngFor="let category of femalecategories;let i = index;">
+                          <li  (click)="FilterList1(category)" class="filter1" data-mixitup-control1 [attr.data-filter] ="setDataFilter(category)">{{category.category}}</li>
+                        </ng-container>
+                       
+                    </ul>
+                    <ul  class="product-controls">
+                      <li class="ListTitle">Man:</li>
+                      <ng-container  *ngFor="let category of malecategories;let i = index;">
+                        <li  (click)="FilterList1(category)" data-mixitup-control1 [attr.data-filter] ="setDataFilter(category)">{{category.category}}</li>
+                      </ng-container>
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="product-list1">
+          <ng-container  *ngFor="let products of highlightedProducts;let i = index;">
+            <ng-container  *ngFor="let product of products.products;let k = index;">
+              <div data-mixitup-control1 [ngClass]="[productClass+products.category]">
+                <div class="single-product-item">
+                    <figure>
+                        <a  (click)="NavigateToProduct(product)">  <img style="max-width:265px;max-height:364px;margin-left: auto;margin-right: auto" [src] ="appURL+product.imageURL" /></a>
+                        <div class="p-status">popular</div>
+                    </figure>
+                    <div class="product-text">
+                        <h6>{{product.productName}}</h6>
+                        <p>{{getRoundedPriceForProduct(product)}}</p>
+                    </div>
+                </div>
+            </div>
+          </ng-container>
+        </ng-container>
+        </div>
+    </div>
+</section>
+
+
+
+
+  <!-- Latest Product Begin -->
+
+  <section class="latest-products spad">
+    <div class="container">
+        <div class="product-filter">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <h2>Latest</h2>
+                    </div>
+                    <ul class="product-controls">
+                        <li class="ListTitle">Woman:</li>
+                        <ng-container  *ngFor="let category of femalecategories;let i = index;">
+                          <li  (click)="FilterList2(category)" class="filter1" data-mixitup-control2 [attr.data-filter] ="setDataFilter(category)">{{category.category}}</li>
+                        </ng-container>
+                       
+                    </ul>
+                    <ul data-mixitup-control2 class="product-controls">
+                      <li data-mixitup-control2 class="ListTitle">Man:</li>
+                      <ng-container  *ngFor="let category of malecategories;let i = index;">
+                        <li  (click)="FilterList2(category)" data-mixitup-control2 [attr.data-filter] ="setDataFilter(category)">{{category.category}}</li>
+                      </ng-container>
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="product-list2">
+          <ng-container  *ngFor="let products of latestProducts;let i = index;">
+            <ng-container  *ngFor="let product of products.products;let k = index;">
+              <div data-mixitup-control2 [ngClass]="[productClass+products.category]">
+                <div class="single-product-item">
+                    <figure>
+                        <a  (click)="NavigateToProduct(product)">  <img style="max-width:265px;max-height:265px;margin-left: auto;margin-right: auto" [src] ="appURL+product.imageURL" /></a>
+                        <div class="p-status sale">new</div>
+                    </figure>
+                    <div class="product-text">
+                        <h6>{{product.productName}}</h6>
+                        <p>{{getRoundedPriceForProduct(product)}}</p>
+                    </div>
+                </div>
+            </div>
+          </ng-container>
+        </ng-container>
+        </div>
+    </div>
+</section>
+
+
+<section class="latest-products spad">
+  <div class="container">
+      <div class="product-filter">
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <div class="section-title">
+                      <h2>Action</h2>
+                  </div>
+                  <ul class="product-controls">
+                      <li class="ListTitle">Woman:</li>
+                      <ng-container  *ngFor="let category of femalecategories;let i = index;">
+                        <li (click)="FilterList3(category)" class="filter1" data-mixitup-control3 [attr.data-filter] ="setDataFilter(category)">{{category.category}}</li>
+                      </ng-container>
+                     
+                  </ul>
+                  <ul data-mixitup-control3 class="product-controls">
+                    <li data-mixitup-control3 class="ListTitle">Man:</li>
+                    <ng-container  *ngFor="let category of malecategories;let i = index;">
+                      <li (click)="FilterList3(category)" data-mixitup-control3 [attr.data-filter] ="setDataFilter(category)">{{category.category}}</li>
+                    </ng-container>
+                </ul>
+              </div>
+          </div>
+      </div>
+      <div class="row" id="product-list3">
+        <ng-container  *ngFor="let products of actionProducts;let i = index;">
+          <ng-container  *ngFor="let product of products.products;let k = index;">
+            <div data-mixitup-control3 [ngClass]="[productClass+products.category]">
+              <div class="single-product-item">
+                  <figure>
+                      <a (click)="NavigateToProduct(product)" > <img style="max-width:265px;max-height:265px;margin-left: auto;margin-right: auto" [src] ="appURL+product.imageURL" /></a>
+                      <div class="p-status action">{{GetAction(product)}}</div>
+                  </figure>
+                  <div class="product-text">
+                      <h6>{{product.productName}}</h6>
+                      <p>{{getRoundedPriceForProduct(product)}}</p>
+                  </div>
+              </div>
+          </div>
+        </ng-container>
+      </ng-container>
+      </div>
+  </div>
+</section>
+
+
+
+
+  
+  <!-- Latest Product End -->
+
+
+
+</body>

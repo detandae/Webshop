@@ -1,0 +1,12 @@
+.backroundcolor{
+    background-color:#d3d7ed;
+    min-height: 100vh
+
+  }
+body
+{
+height:100%;
+overflow: hidden;
+background-color:white;
+
+}

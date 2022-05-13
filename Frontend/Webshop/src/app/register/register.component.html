@@ -1,0 +1,118 @@
+<body>
+<div class="container">
+  <div class="py-5 text-center">
+    
+    <h2>Registration</h2>
+    <p class="lead">Please fill out the fields</p>
+  </div>
+
+  <div class="row justify-content-center align-self-center">
+    <div class="col-md-8 order-md-2">
+      <h4 class="mb-3">Personal Data</h4>
+      <form class="needs-validation" (ngSubmit)="onSubmit(checkoutForm.value)" #checkoutForm="ngForm" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="zip">Username</label>
+            <input type="text"  [ngClass]="[usernameClass]"  [(ngModel)]="username"  (change)="usernameChanged()" name="user" id="user" placeholder=""  required>
+            <div *ngIf="usernameWarning" class="text-danger">
+              <small>Invalid UserName</small>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="password">Password</label>
+            <input class="form-control" [ngClass]="[passwordClass]"  [(ngModel)]="password"  (change)="passwordChanged()" placeholder="**********" type="password"  name="password" id="password">
+            <div *ngIf="passwordWarning" class="text-danger">
+              <small>Password must contain at least 8 character, 1 upper case and 1 number</small>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text"  [ngClass]="[firstNameClass]" id="firstName"   [(ngModel)]="firstName" name="firstName" placeholder="" value="" (change)="firstNameChanged()" required>
+            <div *ngIf="firstNameWarning" class="text-danger">
+              <small>Valid username is required</small>
+            </div>
+         </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text"  [ngClass]="[lastNameClass]" [(ngModel)]="lastName" name="lastName" id="lastName" placeholder="" value=""  (change)="lastNameChanged()" required>
+            <div *ngIf="lastNameWarning" class="text-danger">
+              <small> Valid last name is required.</small>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email">Email <span class="text-muted"></span></label>
+          <input type="email" [ngClass]="[emailClass]"  [(ngModel)]="email" name="email"  id="email"  placeholder="you@example.com"  (change)="emailChanged()">
+          <div *ngIf="emailWarning" class="text-danger">
+            <small> Valid last name is required.</small>
+          </div>
+        </div>
+
+
+
+        <hr class="mb-4">
+
+        
+       
+
+
+        <h4 class="mb-3">Billing adress</h4>
+        <div class="mb-3">
+          <label for="address">Address</label>
+          <input type="text"[ngClass]="[addressClass]" [(ngModel)]="address" name="address"  id="address" placeholder="1234 Main St"  (change)="adressChanged()" required>
+          <div *ngIf="addresseWarning" class="text-danger">
+            <small> please enter your shipping adress</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address2">City <span class="text-muted"></span></label>
+          <input type="text" [ngClass]="[cityClass]" [(ngModel)]="city" name="city" id="city" placeholder="Apartment or suite"  (change)="cityChanged()" >
+          <div *ngIf="cityWarning" class="text-danger">
+            <small> Please enter your city name</small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="zip">Zip</label>
+            <input type="text"  [ngClass]="[zipClass]"  [(ngModel)]="zip" name="zip" id="zip" placeholder="" (change)="zipChanged()" required>
+            <div *ngIf="zipWarning" class="text-danger">
+              <small>invalid Zip!</small>
+            </div>
+          </div>
+          <div class="col-md-5 mb-3">
+            <label for="country">Country</label>
+            <select class="custom-select d-block w-100" [(ngModel)]="country" name="country" id="country" (change)="countryChanged()" required>
+              <option value="">Choose...</option>
+              <option value="United States">United States </option>
+            </select>
+            <div *ngIf="countryWarning" class="text-danger">
+              <small>Please select a country!</small>
+            </div>
+          </div>
+        </div>
+
+       
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+        <div *ngIf="submitWarning" class="text-danger">
+          <small>Please fill out the registerForm correctly</small>
+        </div>
+        <div *ngIf="userNameTaken" class="text-danger">
+          <small>The Username is already taken!</small>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017-2019 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
+</body>

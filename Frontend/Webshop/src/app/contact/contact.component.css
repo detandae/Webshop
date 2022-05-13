@@ -1,0 +1,7 @@
+#contact .card:hover i,#contact .card:hover h4{
+	color: #7db3ff;
+}
+
+.card {
+    height: 100%;
+  }

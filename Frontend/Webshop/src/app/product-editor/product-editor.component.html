@@ -1,0 +1,146 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add Product </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+
+</head>
+<body>
+<div class="container tm-mt-big tm-mb-big">
+  <div class="row">
+    <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+      <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="tm-block-title d-inline-block">Add Product</h2>
+          </div>
+        </div>
+        <div class="row tm-edit-product-row">
+          <div class="col-xl-6 col-lg-6 col-md-12">
+            <form action="" class="tm-edit-product-form">
+              <div class="form-group mb-3">
+                <label for="name">Product Name
+                </label>
+                <input id="name" [(ngModel)]="productName"  (change)="productNameChanged()" name="productName" type="text" class="form-control validate"  required="">
+              </div>
+              <div class="form-group mb-3">
+                <label for="category">Sex</label>
+                <select class="custom-select form-control" id="category"  [(ngModel)]="sex"  (change)="sexChanged()" name="sex">
+                  <option selected="">Select Sex</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div class="form-group mb-3">
+                <label for="category">Category</label>
+                <select class="custom-select form-control" id="category" [(ngModel)]="category" (change)="categoryChanged()" name="category">
+                  <option *ngFor="let type of productTypes" [ngValue]="type">{{type}}</option>
+                </select>
+              </div>
+              <div class="form-group mb-3">
+                <label for="description">Description</label>
+                <textarea class="form-control validate" rows="5" required="" [(ngModel)]="description"  (change)="descriptionChanged()" name="description"></textarea>
+              </div>
+              <div class="form-group mb-3">
+                <label for="name">Color
+                </label>
+                <input id="name" name="color" type="text" class="form-control validate" required="" [(ngModel)]="color"  (change)="colorChanged()">
+              </div>
+              <div class="form-group mb-3">
+                <label for="name">Number in Stock
+                </label>
+                <input id="name" name="numberinStock"  OnlyNumber="true" class="form-control validate" required="" [(ngModel)]="numberinStock" 
+                 (change)="numberinStockChanged()">
+              </div>
+              <div class="row">
+                  <div class="form-group mb-3 col-xs-12 col-sm-6">
+                      <label for="expire_date">Price
+                      </label>
+                      <input id="expire_date" name="price"  OnlyNumber="true" class="form-control validate hasDatepicker" data-large-mode="true"  
+                      [(ngModel)]="price"   (change)="priceChanged()">
+                    </div>
+                    <div class="form-group mb-3 col-xs-12 col-sm-6">
+                      <label for="stock">Action in %
+                      </label>
+                      <input id="stock" name="action" OnlyNumber="true" class="form-control validate" required="" 
+                      [(ngModel)]="action"  (change)="actionChanged()">
+                      <div *ngIf="actionWarning" class="text-danger text-center">
+                        <small>  Action value must be between 0 and 100 </small>
+                        </div>
+                    </div>
+                 
+              </div>
+           
+
+              
+          </form></div>
+          <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+            <div *ngIf="!imageSelected" class="tm-product-img-dummy mx-auto">
+              <i class="fa fa-image tm-upload-icon" (click)="UploadImage()"></i>
+            </div>
+            <div *ngIf="imageSelected" class="tm-product-img-edit mx-auto">
+              <img style="max-width:100%;max-height:264px;margin-left: auto;margin-right: auto" [src] ="imageURL" />
+            </div>
+
+            <div class="custom-file mt-3 mb-3">
+              <input id="fileInput" type="file"  (change)="onSelectFile($event)" style="display:none;">
+              <input type="button"  class="btn btn-primary btn-block mx-auto" value="UPLOAD PRODUCT IMAGE" onclick="document.getElementById('fileInput').click();">
+            </div>
+             <p></p>
+            <div class="form-group mb-3">
+              <label for="name">Material
+              </label>
+              <input id="name" name="material" type="text" class="form-control validate" required=""[(ngModel)]="material" (change)="materialChanged()">
+            </div>
+            <div class="form-group mb-3">
+              <label for="name">Producer
+              </label>
+              <input id="name" name="producer" type="text" class="form-control validate" required="" [(ngModel)]="producer" (change)="producerChanged()">
+            </div >
+            <div  class="mt-5">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="S"  name="S" [(ngModel)]="S">
+                <label class="form-check-label" for="inlineCheckbox1">S</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="M"  name="M"  [(ngModel)]="M">
+                <label class="form-check-label" for="inlineCheckbox2">M</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="L"   name="L" [(ngModel)]="L" >
+                <label class="form-check-label" for="inlineCheckbox2">L</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="XL" name="XL"  [(ngModel)]="XL" >
+                <label class="form-check-label" for="inlineCheckbox2">XL</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="XXL"  name="XXL"  [(ngModel)]="XXL">
+                <label class="form-check-label" for="inlineCheckbox2">XXL</label>
+              </div>
+            </div>
+            <div class="mt-5">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label" for="inlineCheckbox2">Highlighted: </label>
+                <input class="form-check-input highlighted" type="checkbox" id="inlineCheckbox3" value="highlighted" name="highlighted"  [(ngModel)]="Highlighted" >
+              </div>
+            </div>
+         
+
+
+
+          </div>
+          <div class="col-12">
+            <button (click)="AddProduct()"type="submit" class="btn btn-primary btn-block text-uppercase">Add Product Now</button>
+            <div *ngIf="ShowFormWarning" class="text-danger text-center">
+              Please fill all required field and upload image!
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

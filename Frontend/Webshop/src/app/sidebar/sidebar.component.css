@@ -1,0 +1,134 @@
+.sidenav {
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    z-index: 0;
+    top: 0px;
+    left: 0;
+    background-color:#d6d6d6;
+    overflow-x: hidden;
+    padding-top: 70px;
+  }
+  
+  .button{
+    color:#ffffff;
+    font-size: 20px;
+  }
+  .button:hover {
+    background-color: #a8ccff;
+  }
+
+  .buttonClicked{
+    color:#2690c9;
+    font-size: 20px;
+  }
+  .buttonClicked:hover {
+    background-color: #a8ccff;
+  }
+
+  .custom-slider .ng5-slider .ng5-slider-selection {
+    background: rgb(255, 255, 0) !important;
+  }
+  .labelColor{
+    color:#ffffff;
+  }
+  
+  .fw-title {
+    color: #252525;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  .SexStyle {
+    display: inline-block;
+    color:#636363 !important;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 2px 0 0 10px;
+    cursor:pointer;
+  }
+
+  .SexStyle:hover{
+    display: inline-block;
+    color:#636363 !important;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 2px 0 0 10px;
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .SexStyleSelected{
+    display: inline-block;
+    color:#636363 !important;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 2px 0 0 10px;
+    text-decoration:none;
+    cursor:pointer;
+  }
+
+
+
+  input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #f2f2f2;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid  #c2c3c4;
+    box-sizing: border-box;
+    position: relative;
+    box-sizing: content-box;
+    width: 24px;
+    height: 24px;
+    transition: all 0.1s linear;
+  }
+  input[type="checkbox"]:checked {
+    background: url(../../assets/check-mark.png) #c2c3c4 center no-repeat;
+  }
+  input[type="checkbox"]:focus {
+    outline: 0 none;
+    box-shadow: none;
+  }
+
+  .SizeFilter{
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .SizeLabel {
+    color: #636363;
+  }
+  .ListItem{
+    margin: 0 0 2px 0;
+  }
+
+ .price-input {
+    position: relative;
+  }
+  
+  
+  .price-input input {
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 10px;
+    color:#636363 !important;
+    font-weight: bold;
+    font-size: 16px;
+    max-width: 35%;
+    text-align: center;
+    border: 2px solid #ebebeb;
+    border-radius: 2px;
+  }
+  
+  
+ .price-input input:nth-child(1) {
+    margin-right: 0px;
+  }
+  span{
+    position:relative;
+    margin-right:-20px
+  }

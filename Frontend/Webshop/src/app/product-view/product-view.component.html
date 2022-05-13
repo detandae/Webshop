@@ -1,0 +1,16 @@
+
+<div class="container pt-5">
+  <div class="single-product-item">
+    <figure>
+       <a [routerLink]="['/product', productModel.id]">
+           <img  style="max-width:265px;max-height:364px;margin-left: auto;margin-right: auto"
+           [src] ="appURL+productModel.imageURL" alt="">
+        </a>
+        <div *ngIf="CheckAction(productModel)" class="p-status action">{{GetAction(productModel)}}</div>
+    </figure>
+    <div class="product-text">
+        <h6>{{productModel.productName}}</h6>
+        <p>${{getRoundedPrice(productModel)}}</p>
+    </div>
+</div>
+</div>

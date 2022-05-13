@@ -1,0 +1,27 @@
+<div class="container-fluid mt-2 mb-5">
+    <div class="products">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="row g-3" >
+                    <div class="col-md-3"  *ngFor="let product of products">
+                        <app-product-view [productModel]="product" ></app-product-view>
+                    </div>  
+                </div>
+
+            </div>
+
+            <div class="container pt-5">
+            <div class="row justify-content-md-center">
+                <ul class="pagination"  *ngIf="showPagination" >
+                    <button type="button" class="btn-lg btn-outline-dark" (click)="OnPagePrevClicked()">Previous</button>
+                    <div  *ngFor="let page of pages">
+                        <button type="button" [ngClass]="page === currentPage ? buttonClassActive : buttonClass"     (click)="OnPageButtonClicked(page)">{{page}}</button>
+                    </div>
+                    <button type="button" class="btn-lg btn-outline-dark" (click)="OnPageNextClicked()">next</button>
+                </ul>     
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+

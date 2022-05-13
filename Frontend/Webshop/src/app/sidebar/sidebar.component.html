@@ -1,0 +1,74 @@
+<div class="sidenav">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h4 class="fw-title">Sex</h4>
+    <ul >
+        <li><a   [ngClass]="[maleButtonStyle]" (click)="OnMaleTextClicked()" >Men</a></li>
+        <li><a  [ngClass]="[femaleButtonStyle]" (click)="OnFemaleTextClicked()">Women</a></li>
+    </ul>
+    <h4 class="fw-title">Categories</h4>
+    <ul >
+        <ng-container  *ngFor="let category of productCategoryList">
+            <li class="ListItem">
+                <a  [ngClass]="category === currentCategory ? 'SexStyleSelected' : 'SexStyle'" 
+                    (click)="OnCategoryTextClicked(category)"> {{category}}
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+    <h4 class="fw-title">Size</h4>
+    <div  class=" mb-3 SizeFilter">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input"  type="checkbox"  [(ngModel)]="sizeList.S"  [ngModelOptions]="{standalone: true}" (change)="SizeListChanged()"/>
+            <label class="form-check-label SizeLabel" for="inlineCheckbox1">S</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox"   [(ngModel)]="sizeList.M"  [ngModelOptions]="{standalone: true}" (change)="SizeListChanged()"/>
+            <label class="form-check-label SizeLabel" for="inlineCheckbox2">M</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox"   [(ngModel)]="sizeList.L"  [ngModelOptions]="{standalone: true}" (change)="SizeListChanged()"/>
+            <label class="form-check-label SizeLabel" for="inlineCheckbox2">L</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox"    [(ngModel)]="sizeList.XL"  [ngModelOptions]="{standalone: true}" (change)="SizeListChanged()"/>
+            <label class="form-check-label SizeLabel" for="inlineCheckbox2">XL</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox"   [(ngModel)]="sizeList.XXL"  [ngModelOptions]="{standalone: true}" (change)="SizeListChanged()"/>
+            <label class="form-check-label SizeLabel" for="inlineCheckbox2">XXL</label>
+        </div>
+     </div>
+     <h4 class="fw-title">Price</h4>
+     <div class="custom-slider">
+        <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" (userChangeEnd)="priceFilterChanged()"></ng5-slider>
+        <div class="price-input">
+            <input type="text"  [(ngModel)]="minValue" (ngModelChange)="priceFilterChanged()" id="minamount">
+            <input type="text"  [(ngModel)]="maxValue" (ngModelChange)="priceFilterChanged()" id="maxamount">
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+</div>

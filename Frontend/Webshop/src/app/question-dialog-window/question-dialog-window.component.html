@@ -1,0 +1,7 @@
+
+<h1  class="text-center" mat-dialog-title>{{title}}</h1>
+<div  class="text-center "  mat-dialog-content>{{question}}</div>
+<div class="row justify-content-center"   mat-dialog-actions>
+	<button class="btn btn-success" (click)="confirm()" mat-button mat-dialog-close>Yes</button>
+	<button class="btn btn-danger"  (click)="cancel()" mat-button mat-dialog-close>No</button>
+</div>

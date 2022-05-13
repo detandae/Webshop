@@ -1,0 +1,26 @@
+input[type="checkbox"] {
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #f2f2f2;
+    background-position: center;
+    border-radius: 50%;
+    border: 2px solid  #c2c3c4;
+    box-sizing: border-box;
+    position: relative;
+    box-sizing: content-box;
+    width: 24px;
+    height: 24px;
+    transition: all 0.1s linear;
+  }
+  input[type="checkbox"]:checked {
+    background: url(../../assets/check-mark.png) #c2c3c4 center no-repeat;
+  }
+  input[type="checkbox"]:focus {
+    outline: 0 none;
+    box-shadow: none;
+  }
+
+.ProductPaddingTop{
+    padding-top: 55px;
+}

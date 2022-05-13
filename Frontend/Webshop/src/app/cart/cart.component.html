@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="card shopping-cart">
+           <div class="card-header bg-dark text-light">
+               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+               Shopping cart
+               <a [routerLink]="['/home']" class="btn btn-outline-info btn-sm pull-right">Continue shopping</a>
+               <div class="clearfix"></div>
+           </div>
+           <div class="card-body">
+                   <!-- PRODUCT -->
+                   <div  *ngFor="let productInCart of productsInCart;let i = index;">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-2 text-center">
+                                <img class="img-responsive" [src]="GetImageURL(productInCart.product)" alt="prewiew" width="120" height="80">
+                        </div>
+                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                            <h4 class="product-name"><strong>{{productInCart.product.productName}}</strong></h4>
+                            <h4>
+                                <small>{{productInCart.product.description}}</small>
+                            </h4>
+                        </div>
+                        <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+                            <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                                <h6><strong>{{ getRoundedPrice(productInCart.product) }} <span class="text-muted">$</span></strong></h6>
+                            </div>
+                            <div class="col-4 col-sm-4 col-md-4">
+                                <div class="quantity">
+                                    <input type="button" (click)="buttonPlusClicked(productInCart)" value="+" class="plus">
+                                    <input type="number" step="1" max="99" min="1" [(ngModel)]="productInCart.amount"  title="Qty" class="qty"
+                                            size="4">
+                                    <input type="button" (click)="buttonMinusClicked(productInCart)"  value="-" class="minus">
+                                </div>
+                            </div>
+                            <div class="col-2 col-sm-2 col-md-2 text-right">
+                                <button type="button" class="btn btn-outline-danger btn-xs" (click)="buttonDeleteClicked(productInCart)">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                   </div>
+                   <!-- END PRODUCT -->
+
+
+
+           </div>
+           <div class="card-footer">
+               <div class="pull-right" style="margin: 10px">
+                   <a *ngIf="cartService.productsInCart.length > 0" [routerLink]="" (click)="OnCheckoutClicked()" class="btn btn-success pull-right">Checkout</a>
+                   <div class="pull-right" style="margin: 5px">
+                       Total price: <b>{{getTotalPrice()}}<span class="text-muted">$</span> </b>
+                   </div>
+               </div>
+           </div>
+       </div>
+</div>

@@ -1,0 +1,104 @@
+
+       <!-- Product Page Section Beign -->
+       <section class="product-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 ProductPaddingTop">
+                        <div class="product-img">
+                            <figure>
+                                <img [src]="GetImageURL()" alt="">
+                            </figure>
+                        </div>
+                    
+                </div>
+                <div class="col-lg-6">
+                    <div class="product-content">
+                        <h2>{{productModel?.productName}}</h2>
+                        <div class="pc-meta">
+                            <h5>${{getRoundedPrice()}} {{getAction()}}</h5>
+                        </div>
+                        <p>{{productModel?.description}}</p>
+                        <ul class="tags">
+                            <li><span>Category :</span> {{productModel?.category.sex}}/{{productModel?.category.category}}</li>
+                            <li><span>Color :</span> {{productModel?.color}}</li>
+                            <li><span>Producer :</span> {{productModel?.producer}}</li>
+                            <li><span>Material :</span> {{productModel?.material}}</li>
+                        </ul>
+                            <div  class=" mb-3">
+                                <div *ngIf="ShowS"  class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox"(click)="sizeClicked('S')" id="inlineCheckbox1" value="S"  name="S" [(ngModel)]="S">
+                                    <label class="form-check-label" for="inlineCheckbox1">S</label>
+                                </div>
+                                <div  *ngIf="ShowM" class="form-check form-check-inline">
+                                    <input class="form-check-input"   type="checkbox" (click)="sizeClicked('M')"  id="inlineCheckbox2" value="M"  name="M"  [(ngModel)]="M">
+                                    <label class="form-check-label" for="inlineCheckbox2">M</label>
+                                </div>
+                                <div *ngIf="ShowL" class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox"  (click)="sizeClicked('L')" id="inlineCheckbox3" value="L"   name="L" [(ngModel)]="L" >
+                                    <label class="form-check-label" for="inlineCheckbox2">L</label>
+                                </div>
+                                <div *ngIf="ShowXL" class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" (click)="sizeClicked('XL')" id="inlineCheckbox3" value="XL" name="XL"  [(ngModel)]="XL" >
+                                    <label class="form-check-label" for="inlineCheckbox2">XL</label>
+                                </div>
+                                <div *ngIf="ShowXXL" class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" (click)="sizeClicked('XXL')"  id="inlineCheckbox3" value="XXL"  name="XXL"  [(ngModel)]="XXL">
+                                    <label class="form-check-label" for="inlineCheckbox2">XXL</label>
+                                </div>
+                             </div>
+                        <div class="product-quantity">
+    
+                            <div class="pro-qty">
+                                <span (click)="MinusClicked()" class="dec qtybtn">-</span>
+                                <input type="text"   [(ngModel)]="currentAmmount" OnlyNumber="true"  value="1">
+                                <span  (click)="PlusClicked()" class="dec qtybtn">+</span>
+                            </div>
+                        </div>
+                        <a (click)="buttonAddToCartClicked()" class="primary-btn pc-btn">Add to cart</a>
+
+                        <div *ngIf="sizeWarning" class=" mp-1 text-danger text-center">
+                            Please select size!
+                        </div>
+                          <div *ngIf="ammountWarning" class="mp-1 text-danger text-center">
+                            Minimum ammount is 1!
+                         </div>
+  
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Related Product Section Begin -->
+     <section class="related-product spad" *ngIf="showRelatedProducts">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title">
+                        <h2>Related Products</h2>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <ng-container  *ngFor="let productModel of relatedProducts;let k = index;">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-product-item">
+                            <figure>
+                               <a (click)="NavigateToProduct(productModel.id)"  [routerLink]="['/product', productModel.id]">
+                                   <img  style="max-width:265px;max-height:364px;margin-left: auto;margin-right: auto"
+                                   [src] ="appURL+productModel.imageURL" alt="">
+                                </a>
+                                <div class="p-status">popular</div>
+                            </figure>
+                            <div class="product-text">
+                                <h6>{{productModel.productName}}</h6>
+                                <p>${{getRoundedPriceForProduct(productModel)}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </section>
